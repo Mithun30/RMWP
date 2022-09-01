@@ -1,0 +1,385 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ResourceMasterSelection" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uit="http://schemas.uipath.com/workflow/activities/terminal" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_TerminalConnection" Type="InArgument(uit:TerminalConnection)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1240,5258</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ResourceMasterSelection_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="60">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Terminal.Enums</x:String>
+      <x:String>UiPath.Terminal.Advanced.Activities</x:String>
+      <x:String>UiPath.Terminal.Activities</x:String>
+      <x:String>UiPath.Terminal</x:String>
+      <x:String>UiPath.Terminal.Service</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="29">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Terminal</AssemblyReference>
+      <AssemblyReference>UiPath.Terminal.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Terminal.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ResourceMasterSelection" sap:VirtualizedContainerService.HintSize="476,5193" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Int32" Default="7" Name="intDelete" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="intLoop" />
+      <Variable x:TypeArguments="x:String" Default="0.03625" Name="strWeight" />
+      <Variable x:TypeArguments="x:Int32" Name="intRowVal" />
+      <Variable x:TypeArguments="x:String" Default="0.5" Name="stdUnit" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uit:TerminalSession ConnectionString="{x:Null}" ContinueOnError="{x:Null}" OutputConnection="{x:Null}" SSHPassword="{x:Null}" SSHUserName="{x:Null}" CloseConnection="True" DelayMS="1000" DisplayName="Terminal Session" ExistingConnection="[in_TerminalConnection]" sap:VirtualizedContainerService.HintSize="434,5101" sap2010:WorkflowViewState.IdRef="TerminalSession_1" TimeoutMS="50000">
+      <uit:TerminalSession.Body>
+        <ActivityAction x:TypeArguments="uit:TerminalConnection">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="uit:TerminalConnection" Name="terminalSession" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,5002" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uit:TerminalSetFieldAtPosition Column="49" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_1" Row="4" Text="2-241317A" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalSetFieldAtPosition Column="49" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_2" Row="5" Text="A" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalSendControlKey DelayMS="1000" DisplayName="Send Control Key" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="TerminalSendControlKey_1" Key="Transmit" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalSetFieldAtPosition Column="43" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_3" Row="6" Text="RM" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalSetFieldAtPosition Column="78" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_4" Row="6" Text="09" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalSetFieldAtPosition Column="15" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_5" Row="7" Text="CORES 48MM CLASSIC 700 .075W " TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalSetFieldAtPosition Column="78" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_6" Row="7" Text="EA" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalMoveCursor Column="45" DelayMS="300" DisplayName="Move Cursor" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="TerminalMoveCursor_1" Row="8" TimeoutMS="5000" WaitType="READY" />
+            <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+              <ui:InterruptibleDoWhile.Body>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,251" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uit:TerminalSendControlKey DelayMS="1000" DisplayName="Send Control Key" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="TerminalSendControlKey_3" Key="BackSpace" TimeoutMS="5000" WaitType="READY" />
+                  <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[intLoop]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[intLoop + 1]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </ui:InterruptibleDoWhile.Body>
+              <ui:InterruptibleDoWhile.Condition>
+                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="intLoop &lt; intDelete" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_3" />
+              </ui:InterruptibleDoWhile.Condition>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InterruptibleDoWhile>
+            <uit:TerminalSetFieldAtPosition Column="29" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_8" Row="8" Text="[strWeight]" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalMoveCursor Column="45" DelayMS="300" DisplayName="Move Cursor" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="TerminalMoveCursor_2" Row="9" TimeoutMS="5000" WaitType="READY" />
+            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[intLoop]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">0</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_2">
+              <ui:InterruptibleDoWhile.Body>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,251" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uit:TerminalSendControlKey DelayMS="1000" DisplayName="Send Control Key" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="TerminalSendControlKey_4" Key="BackSpace" TimeoutMS="5000" WaitType="READY" />
+                  <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[intLoop]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[intLoop + 1]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </ui:InterruptibleDoWhile.Body>
+              <ui:InterruptibleDoWhile.Condition>
+                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="intLoop &lt; intDelete" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_4" />
+              </ui:InterruptibleDoWhile.Condition>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InterruptibleDoWhile>
+            <uit:TerminalSetFieldAtPosition Column="29" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_10" Row="9" Text="[strWeight]" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalSetFieldAtPosition Column="79" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_11" Row="11" Text="D" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalSetFieldAtPosition Column="79" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_12" Row="14" Text="N" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalSetFieldAtPosition Column="67" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_13" Row="19" Text="CORES" TimeoutMS="5000" WaitType="READY" />
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,323" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uit:TerminalMoveCursor Column="67" DelayMS="300" DisplayName="Move Cursor" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="TerminalMoveCursor_3" Row="19" TimeoutMS="5000" WaitType="READY" />
+                  <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="f5" KeyModifiers="Shift" SpecialKey="True">
+                    <ui:SendHotkey.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="f197ada9-832b-43b0-9178-a3caa292c325">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:SendHotkey.Target>
+                  </ui:SendHotkey>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <uit:TerminalSendControlKey DelayMS="1000" DisplayName="Send Control Key" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="TerminalSendControlKey_5" Key="Transmit" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalSetFieldAtPosition Column="26" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_14" Row="15" TimeoutMS="5000" WaitType="READY">
+              <uit:TerminalSetFieldAtPosition.Text>
+                <InArgument x:TypeArguments="x:String">
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </InArgument>
+              </uit:TerminalSetFieldAtPosition.Text>
+            </uit:TerminalSetFieldAtPosition>
+            <uit:TerminalSendControlKey DelayMS="1000" DisplayName="Send Control Key" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="TerminalSendControlKey_6" Key="Transmit" TimeoutMS="5000" WaitType="READY" />
+            <Sequence sap:VirtualizedContainerService.HintSize="334,66" sap2010:WorkflowViewState.IdRef="Sequence_11">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uit:TerminalSetFieldAtPosition Column="28" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_15" Row="6" Text="NP" TimeoutMS="5000" WaitType="READY">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uit:TerminalSetFieldAtPosition>
+              <uit:TerminalSetFieldAtPosition Column="28" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_16" Row="7" Text="NP" TimeoutMS="5000" WaitType="READY">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uit:TerminalSetFieldAtPosition>
+              <uit:TerminalSetFieldAtPosition Column="28" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_17" Row="9" Text="NR" TimeoutMS="5000" WaitType="READY">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uit:TerminalSetFieldAtPosition>
+              <uit:TerminalSetFieldAtPosition Column="28" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_18" Row="10" TimeoutMS="5000" WaitType="READY">
+                <uit:TerminalSetFieldAtPosition.Text>
+                  <InArgument x:TypeArguments="x:String">
+                    <Literal x:TypeArguments="x:String" Value="" />
+                  </InArgument>
+                </uit:TerminalSetFieldAtPosition.Text>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uit:TerminalSetFieldAtPosition>
+              <uit:TerminalSetFieldAtPosition Column="28" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_19" Row="11" Text="00" TimeoutMS="5000" WaitType="READY">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uit:TerminalSetFieldAtPosition>
+              <uit:TerminalSetFieldAtPosition Column="27" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_20" Row="12" TimeoutMS="5000" WaitType="READY">
+                <uit:TerminalSetFieldAtPosition.Text>
+                  <InArgument x:TypeArguments="x:String">
+                    <Literal x:TypeArguments="x:String" Value="" />
+                  </InArgument>
+                </uit:TerminalSetFieldAtPosition.Text>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uit:TerminalSetFieldAtPosition>
+              <uit:TerminalSetFieldAtPosition Column="29" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_21" Row="14" Text="N" TimeoutMS="5000" WaitType="READY">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uit:TerminalSetFieldAtPosition>
+              <uit:TerminalSendControlKey DelayMS="1000" DisplayName="Send Control Key" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TerminalSendControlKey_7" Key="Transmit" TimeoutMS="5000" WaitType="READY">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uit:TerminalSendControlKey>
+            </Sequence>
+            <uit:TerminalSetFieldAtPosition Column="35" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_22" Row="8" Text="DV" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalSetFieldAtPosition Column="35" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_23" Row="7" Text="DV" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalSetFieldAtPosition Column="69" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_24" Row="7" Text="RM" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalSetFieldAtPosition Column="69" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_25" Row="8" Text="RM" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalSendControlKey DelayMS="1000" DisplayName="Send Control Key" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="TerminalSendControlKey_10" Key="Transmit" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalSendControlKey DelayMS="1000" DisplayName="Send Control Key" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="TerminalSendControlKey_8" Key="Transmit" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalSetFieldAtPosition Column="35" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_26" Row="8" TimeoutMS="5000" WaitType="READY">
+              <uit:TerminalSetFieldAtPosition.Text>
+                <InArgument x:TypeArguments="x:String">
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </InArgument>
+              </uit:TerminalSetFieldAtPosition.Text>
+            </uit:TerminalSetFieldAtPosition>
+            <uit:TerminalSetFieldAtPosition Column="35" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_27" Row="10" TimeoutMS="5000" WaitType="READY">
+              <uit:TerminalSetFieldAtPosition.Text>
+                <InArgument x:TypeArguments="x:String">
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </InArgument>
+              </uit:TerminalSetFieldAtPosition.Text>
+            </uit:TerminalSetFieldAtPosition>
+            <uit:TerminalSendControlKey DelayMS="1000" DisplayName="Send Control Key" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="TerminalSendControlKey_11" Key="Transmit" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalSendControlKey DelayMS="1000" DisplayName="Send Control Key" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="TerminalSendControlKey_13" Key="Transmit" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalSetFieldAtPosition Column="39" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_28" Row="7" Text="M" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalSetFieldAtPosition Column="39" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_29" Row="8" Text="P" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalSendControlKey DelayMS="1000" DisplayName="Send Control Key" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="TerminalSendControlKey_14" Key="Transmit" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalSetFieldAtPosition Column="40" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_30" Row="7" Text="EA" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalMoveCursor Column="42" DelayMS="300" DisplayName="Move Cursor" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="TerminalMoveCursor_4" Row="6" TimeoutMS="5000" WaitType="READY" />
+            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[intLoop]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">0</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_3">
+              <ui:InterruptibleDoWhile.Body>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,251" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uit:TerminalSendControlKey DelayMS="1000" DisplayName="Send Control Key" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="TerminalSendControlKey_16" Key="BackSpace" TimeoutMS="5000" WaitType="READY" />
+                  <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[intLoop]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[intLoop + 1]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </ui:InterruptibleDoWhile.Body>
+              <ui:InterruptibleDoWhile.Condition>
+                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="intLoop &lt; intDelete" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_5" />
+              </ui:InterruptibleDoWhile.Condition>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InterruptibleDoWhile>
+            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[intRowVal]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">[42 -stdUnit.Length]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <uit:TerminalMoveCursor Column="[intRowVal]" DelayMS="300" DisplayName="Move Cursor" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="TerminalMoveCursor_5" Row="6" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalSetFieldAtPosition Column="[intRowVal]" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_32" Row="6" Text="0.5" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalSendControlKey DelayMS="1000" DisplayName="Send Control Key" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="TerminalSendControlKey_15" Key="Transmit" TimeoutMS="5000" WaitType="READY" />
+            <uit:TerminalSendControlKey DelayMS="1000" DisplayName="Send Control Key" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="TerminalSendControlKey_17" Key="Transmit" TimeoutMS="5000" WaitType="READY" />
+          </Sequence>
+        </ActivityAction>
+      </uit:TerminalSession.Body>
+    </uit:TerminalSession>
+  </Sequence>
+</Activity>
